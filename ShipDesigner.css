@@ -1,0 +1,568 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+    font-family: arial, sans-serif;
+    font-size: 15px;
+    text-shadow: 0px 0px 5px #fff, 0px 0px 10px rgb(79, 136, 197), 0px 0px 10px rgb(67, 100, 227);
+    overflow: hidden;
+}
+
+*:not(input, #left)::selection {
+    background-color: transparent;
+}
+
+.info {
+    cursor: help;
+}
+
+#logo {
+    width: 90%;
+    padding: 5%;
+}
+
+div {
+    background: rgb(0, 20, 60);
+    position: absolute;
+    text-align: center;
+}
+
+div.main {
+    box-shadow: inset 0px 0px 5px rgb(79, 136, 197), inset 0px 0px 10px rgb(79, 136, 197);
+    overflow: hidden;
+}
+
+#left {
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 200px;
+    height: 100%;
+}
+
+#top {
+    top: 0px;
+    left: 200px;
+    right: 0px;
+    height: 120px;
+    overflow: visible;
+}
+
+#bottom {
+    left: 200px;
+    right: 0px;
+    bottom: -80px;
+    height: 100px;
+    transition: bottom 0.2s;
+    cursor: pointer;
+}
+
+#bottom:hover {
+    background: rgb(50, 75, 100);
+}
+
+#bottomtext {
+    position: static;
+    height: 20px;
+    line-height: 20px;
+    background: transparent;
+}
+
+#middle {
+    top: 120px;
+    right: 0px;
+    left: 200px;
+    bottom: 20px;
+    background: url('background.jpg') center center no-repeat;
+    background-size: cover;
+    transition: bottom 0.2s;
+}
+
+#ship-designer-canvas {
+    z-index: -1;
+}
+
+p.descriptor {
+    float: left;
+    margin: 0px;
+}
+
+a {
+    color: inherit;
+    background: transparent;
+    text-decoration: inherit;
+}
+
+a.link {
+    margin: 10px;
+    color: rgb(249, 255, 150);
+}
+
+a.link:hover {
+    color: rgb(30, 220, 150);
+}
+
+a.link:active {
+    color: rgb(20, 150, 100);
+}
+
+a.link img {
+    display: none;
+}
+
+#info {
+    margin-top: 30px;
+}
+
+#build, #out {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+#out {
+    color: #f00;
+    bottom: 3em;
+}
+
+#scalars {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+}
+
+#scalars * {
+    cursor: pointer;
+    float: left;
+}
+
+#line {
+    cursor: default;
+}
+
+.poscontrol {
+    cursor: pointer;
+}
+
+#pcontup {
+    top: 25px;
+}
+
+#pcontright {
+    right: 25px;
+}
+
+#pcontdown {
+    bottom: 25px;
+}
+
+#pcontleft {
+    left: 25px;
+}
+
+.vertical * {
+    display: block;
+}
+
+.horizontal * {
+    float: left;
+}
+
+.plus {
+    background: rgb(30, 220, 150);
+}
+
+.plus:active {
+    background: rgb(20, 150, 100);
+}
+
+.minus {
+    background: rgb(255, 193, 7);
+}
+
+.minus:active {
+    background: rgb(170, 130, 5);
+}
+
+.arrow:hover {
+    filter: brightness(2);
+}
+
+.arrow:active {
+    box-shadow: inset 0px 0px 5px rgb(79, 136, 197), inset 0px 0px 10px rgb(79, 136, 197);
+}
+
+div.control {
+    background: rgb(204, 204, 204);
+    color: rgb(0, 20, 60);
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+    width: 28px;
+    padding: 4px;
+    text-shadow: none;
+}
+
+#file {
+    cursor: pointer;
+}
+
+#file:hover {
+    background: rgb(150, 150, 150);
+}
+
+#menudarkener {
+    transition: opacity 0.1s;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: #000;
+    z-index: 1;
+    display: none;
+    opacity: 0;
+}
+
+#filemenu {
+    transition: opacity 0.1s, width 0.1s, height 0.1s;
+    top: 24px;
+    width: 0px;
+    height: 0px;
+    z-index: 2;
+    display: none;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0px;
+}
+
+#filesidebar {
+    float: left;
+    height: 100%;
+    width: 100px;
+    background: transparent;
+}
+
+#filesidebar button {
+    width: 100%;
+    text-align: left;
+    height: 45px;
+}
+
+.filesubmenu {
+    height: 94%;
+    width: 150px;
+    display: none;
+    right: 25px;
+    padding: 0px;
+    margin: 3% 0px;
+    background: rgb(204, 204, 204);
+}
+
+.filesubmenu label {
+    color: rgb(0, 20, 60);
+    text-align: left;
+    width: 145px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    background: rgb(249, 255, 150);
+    padding-left: 5px;
+    margin-top: 4px;
+    outline: 4px solid rgb(170, 130, 5);
+}
+
+.filesubmenu label.tall {
+    height: 40px;
+    line-height: 19px;
+    word-break: keep-all;
+}
+
+.filesubmenu input {
+    height: 21px;
+    padding: 0px 0px 0px 5px;
+    width: 140px;
+}
+
+.filesubmenu p {
+    margin: 0px;
+    background: rgb(0, 20, 60);
+    color: #fff;
+    padding-top: 5px;
+    height: 38px;
+    border: 1px solid rgb(100, 100, 100);
+    text-shadow: 0px 0px 5px #fff, 0px 0px 10px rgb(79, 136, 197), 0px 0px 10px rgb(67, 100, 227);
+    width: 150px;
+}
+
+.filesubmenu button {
+    width: 149px;
+}
+
+#filebuttonopenmenujsoninput {
+    position: fixed;
+    display: none;
+    top: 100px;
+    right: 100px;
+    bottom: 100px;
+    left: 100px;
+    z-index: 5;
+    transition: opacity 0.1s;
+    opacity: 0;
+    padding-right: 6px;
+}
+
+#filebuttonopenmenujsoninput textarea {
+    width: 100%;
+    height: 90%;
+}
+
+#filebuttonopenmenu input {
+    width: 100%;
+    opacity: 0;
+}
+
+/* Temps */
+#filebuttonnewmenu {
+    display: block;
+}
+
+#fileinputwrapper, p.downloadwrapper {
+    position: relative;
+    z-index: 2;
+    height: 23px;
+    width: 148px;
+    margin-bottom: 5px;
+    padding: 0px;
+}
+
+#fileinputwrapper:hover, p.downloadwrapper:hover {
+    box-shadow: inset 0px 0px 5px rgb(79, 136, 197), inset 0px 0px 10px rgb(79, 136, 197);
+}
+
+p.downloadwrapper a, #fileinputwrapper span {
+    display: block;
+    width: 148px;
+    height: 23px;
+    margin: 0px;
+    line-height: 23px;
+}
+
+#fileinputwrapper input {
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    cursor: pointer;
+    height: 28px;
+}
+
+#downloadimageview {
+    max-width: 150px;
+    max-height: 200px;
+    background: rgb(0, 20, 60);
+}
+
+.do {
+    position: absolute;
+    top: 0px;
+    background: rgb(170, 130, 5);
+}
+
+.doactive {
+    background: rgb(30, 220, 150);
+    cursor: pointer;
+}
+
+.doactive:active {
+    background: rgb(20, 150, 100);
+}
+
+#undo {
+    left: 36px;
+}
+
+#redo {
+    left: 60px;
+}
+
+#celltype {
+    position: fixed;
+    width: 108px;
+    height: 108px;
+    right: 5px;
+    top: 5px;
+    border: 1px solid rgb(255, 193, 7);
+    cursor: pointer;
+    background: url(background.jpg);
+    background-size: 300px;
+    z-index: 2;
+}
+
+#cellicon:hover {
+    background: rgba(30, 220, 150, 0.5)
+}
+
+#celldesc {
+    top: 70px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    line-height: 18px;
+    font-size: 12px;
+    background: transparent;
+    z-index: -1;
+}
+
+#cellselect {
+    position: fixed;
+    top: 115px;
+    right: 5px;
+    width: 145px;
+    height: 85px;
+    z-index: 2;
+    transition: opacity 0.1s;
+    opacity: 0;
+    display: none;
+    padding: 0px;
+}
+
+div.cellgroup {
+    height: 30px;
+    margin: 0px;
+}
+
+#cellgroupcolor {
+    background: rgb(67, 100, 227);
+    top: 10px;
+    left: 10px;
+    right: 15px;
+}
+
+#cellgrouptype {
+    background: rgb(0, 20, 60);
+    top: 40px;
+    left: 10px;
+    right: 45px;
+}
+
+#cellgroupempty {
+    background: rgb(170, 130, 5);
+    top: 45px;
+    left: 105px;
+    right: 10px;
+}
+
+canvas.cellselection {
+    margin: 0px;
+    float: left;
+    cursor: pointer;
+}
+
+.modeselect {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 120px;
+    top: 5px;
+    border: 1px solid rgb(255, 193, 7);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.modeselect.selected {
+    outline: 1px solid rgb(249, 255, 150);
+    border-color: rgb(249, 255, 150);
+}
+
+.modeselect canvas:hover {
+    background: rgba(30, 220, 150, 0.5);
+}
+
+#rectselect, #freeselect {
+    top: 63px;
+}
+
+#circselect, #freeselect {
+    right: 178px;
+}
+
+#centerbutton {
+    border: 1px solid rgb(255, 193, 7);
+    width: 48px;
+    left: 90px;
+    height: 14px;
+    line-height: 14px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+#centerbutton:hover {
+    background: rgba(30, 220, 150, 0.5);
+}
+
+#centerbutton:active {
+    outline: 1px solid rgb(249, 255, 150);
+    border-color: rgb(249, 255, 150);
+}
+
+#selectionoptions {
+    border: 1px solid rgb(255, 193, 7);
+    right: 235px;
+    top: 5px;
+    width: 352px;
+    height: 108px;
+}
+
+div.slider {
+    height: 25px;
+    width: 170px;
+    background: rgb(24, 39, 55);
+    text-align: left;
+    padding: 0px 0px 0px 5px;
+    line-height: 25px;
+    outline: 1px solid rgb(255, 193, 7);
+}
+
+div.slider::selection {
+    background: transparent;
+}
+
+div.slider:before {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 0px;
+    width: 30px;
+    height: 15px;
+    background: rgb(170, 130, 5);
+    border-radius: 15px;
+    display: block;
+    content: "";
+    transition: background-color 0.2s;
+}
+
+div.slider:after {
+    width: 15px;
+    height: 15px;
+    display: block;
+    top: 5px;
+    right: 20px;
+    background: rgb(249, 255, 150);
+    position: absolute;
+    border-radius: 15px;
+    content: "";
+    transition: background-color 0.2s, right 0.2s;
+}
+
+div.slider.selected:before {
+    background: rgb(15, 120, 105);
+}
+
+div.slider.selected:after {
+    background: rgb(30, 220, 150);
+    right: 5px;
+}

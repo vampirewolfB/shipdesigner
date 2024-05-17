@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="author" content="Quarxnox"/>
+        <meta name="description"
+              content="Guide to using Space Arena Ship Designer"/>
+        <title>How to use ship designer</title>
+        <style type="text/css">
+            * {
+                font-family: arial, sans-serif;
+            }
+            
+            body {
+                background: #eee;
+                margin-bottom: 100px;
+            }
+            
+            img, h1 {
+                display: block;
+            }
+            
+            img{
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
+            
+            code {
+                font-family: courier new, monospace;
+                background: #aaa;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="intro">
+            <h1>Guide to Space Arena Ship Designer</h1>
+            Welcome to the guide to <a href="./" target="_blank">Space Arena Ship Designer</a>.
+            <br/>
+            Space Arena Ship Designer is an editor to create ship layouts for the game
+            <a href="http://www.herocraft.com/games/#!spaceshipbattles" target="_blank">Space Arena</a>.<br/>
+            When a design is finished, it can be submitted on either
+            <a class="link" href="https://discord.gg/YDvVA78" target="_blank">Discord</a> or
+            <a class="link" href="https://www.reddit.com/r/SpaceArenaOfficial" target="_blank">Reddit</a>
+            for the developers to consider adding to the game.<br/>
+            If you know that the editor exists, you most likely already know what ships in the game look like. However,
+            I have
+            provided two examples just in case.
+            <img src="https://media.discordapp.net/attachments/354352678555484170/733164128616710244/db450fce-f5c0-4d2c-ad8c-0f87d089eecb.png"
+                 alt="Image of Hammerhead design">
+            <img src="https://media.discordapp.net/attachments/354352678555484170/733164185172836402/00cb8efc-124b-4168-8d31-688aca2e159c.png"
+                 alt="Image of Oblivion Ark design">
+            If you would like a tutorial on making art for ships,
+            <a href="https://docs.google.com/document/d/106KDS3sPDD05ZVTYLQoD_S8LGIdp_Tkg8TcKc_9XuNE/edit?usp=drivesdk">
+                here's a link to EnderRobo's ship art tutorial (Google Doc)</a>.
+        </div>
+        <div id="cells">
+            <br /><br />
+            The first part of the editor is the grid. This is where you draw your design.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733165735207108626/Screenshot_62.png"
+                 alt="Image of grid">
+            You have probably discovered that you can click or tap on this grid to fill in cells with gray.<br/>
+            Gray cells are regular, basic cells. You can change what type of cell you are drawing with either by
+            scrolling, or by using the cell selection menu in the upper right corner.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733166924401475655/Screenshot_63.png"
+                 alt="Image of cell selection menu">
+            There are 12 cell types to select from, as well as the empty cell. The cell selection menu will tell you
+            what kind of cell is currently selected.
+        </div>
+        <div id="modes">
+            There are four cell fill modes. The default mode is single select, which allows you to fill in one cell at a time.<br/>
+            You can also click and drag to draw lines of cells, though this doesn't work well on mobile.<br/><br/>
+            You can change what type of fill mode you want to use by clicking one of the four mode icons.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733168018351456286/Screenshot_64.png"
+                 alt="Image of fill mode icons">
+            In addition to single select, you have options for<br/>
+            <ul>
+                <li>Rectangle select: Allows you to draw and fill a rectangular area.</li>
+                <li>Circle select: Allows you to draw and fill a circular area.</li>
+                <li>Free form select: Allows you to draw and fill weird shapes.<br/>
+                    &nbsp You can click and drag to draw a wavy line, or create straight lines by using individual clicks.</li>
+            </ul>
+            In addition to these, you have two modifiers that alter the behavior of your selected fill mode.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733169517508821022/Screenshot_65.png"
+                 alt="Image of fill mode modifiers">
+            Neither of these have any affect on single select. However, they modify all other fill modes.<br/>
+            The Inverted Selection option will cause you to select every cell that is NOT surrounded by your fill area.<br/>
+            The Edges Only option will only select the edges of your defined area. Or, if invertion is also on, will select
+            everything but the edges.
+        </div>
+        <div id="gridcontrols">
+            <br/>
+            Around the grid there are several additional controls.<br/>
+            In the upper left corner is your scaling control.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733172703057674240/Screenshot_66.png"
+                 alt="Image of scaling control">
+            This allows you to zoom in and out of the grid in order to see more of it at a time.<br/>
+            On each side of the grid, there is a small box with three controls.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733173861193089024/Screenshot_69.png"
+                 alt="Image of top box with three controls">
+            In each box, there is an arrow control. This allows you to move the grid of cells around on your screen.<br/>
+            There is a protection to prevent you from moving the entire grid out of view and losing it.<br/>
+            Next to the arrow is a plus symbol. Clicking this will add a new row or column of empty cells to that side of the grid.<br/>
+            The minus symbol does the opposite, removing the outermost row or column from that side.<br/><br/>
+            You can also add and remove rows and columns to the middle of the grid. Select the Single Select fill mode and<br/>
+            move your cursor to the edge of the grid. A plus or minus icon will pop up and allow you to add or remove a column or row of cells.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733175253861138462/Screenshot_72.png"
+                 alt="Image of internal cell adding icon">
+            At the bottom of the editor is a small bar labelled "Show cell counts".
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733178923436867644/Screenshot_76.png"
+                 alt="Image of 'Show cell counts' bar">
+            Clicking this will open the Cell Counts info bar. This uses an algorithm to count up the number of each
+            category of cells are used in your ship.<br/>
+            If you are confused by the counts, don't worry. These are more for the developers than you.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733178574961377340/Screenshot_75.png"
+                 alt="Image of Cell Counts info bar">
+        </div>
+        <div id="additional">
+            There are several other controls in the upper right corner.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733179175875379270/Screenshot_77.png"
+                 alt="Image of additional controls in upper right corner">
+            The rightmost control is a button labelled "Center". Clicking this will move your grid so that it is centered on your screen.<br/>
+            To the left of this are the undo and redo controls. These are slightly bugged, but you can use these to undo past actions.<br/>
+            You can also use the key combinations ctrl+z for undo and ctrl+shift+z for redo.<br/><br/>
+            The final control is the "File" button. Clicking this will open the save/open menu.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733180848299442286/Screenshot_78.png"
+                 alt="Image of save/open menu in the 'new' section">
+            There are four sections to the menu. The first is "new". This will allow you to create a new grid with your desired dimensions.<br/>
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733181554435686450/Screenshot_80.png"
+                 alt="Image of save/open menu in the 'open' section">
+            The second section is "open". This has two options. The first, labelled "browse" opens your file explorer to import a .shipdesign file.<br/>
+            It will also accept .txt and .json files, though these aren't used very much.<br/>
+            Under the browse button is a second option labelled "input JSON". This will open a giant text box you can type in.<br/>
+            The JSON menu is mostly for development purposes. JSON is a format for storing data as text. The JSON for a light fighter looks like this:<br/>
+            <code>[[0,0,0,1,0],[1,1,1,1,3],[0,0,0,1,0]]</code>
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733183492120379502/Screenshot_81.png"
+                 alt="Image of save/open menu in the 'save project' section">
+            The third section, "save project", has a single option. This option downloads a .shipdesign file containing the data for your ship.<br/>
+            This allows you to come back to finish your ship later, or share an incomplete design for others to work on.
+            <img src="https://media.discordapp.net/attachments/486698250183639040/733184340829405184/Screenshot_82.png"
+                 alt="Image of save/open menu in the 'save image' section">
+            The final section, "save image", will show an image of your design, along with an option to download the image.<br/>
+            This is used to submit the finished design to Reddit or Discord.
+        </div>
+        <div id="footer">
+            <br/>
+            If you have anything to add to this guide, or if you find any mistakes in it, please contact Quarxnox#0101 on discord.
+        </div>
+    </body>
+</html>

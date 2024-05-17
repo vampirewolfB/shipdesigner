@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- https://space-arena-ship-builder.now.sh -->
+    <!-- https://space-arena-ship-builder.now.sh/assets/logo.png -->
+    <!-- https://space-arena-ship-builder.now.sh/assets/headerbg.jpg -->
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="author" content="Quarxnox" />
+        <meta name="version" content="1.2.7" />
+        <meta name="description"
+              content="Space Arena Ship Designer 1.2.7: make new ships designs and submit them to the developers." />
+        <meta name="google-site-verification" content="TFXGMm2dOnUCzoFJmWeNoZF33-JrKU5ofFXoXxaNHdY" />
+        
+        <title>Space Arena Ship Designer</title>
+        <script type="text/javascript" src="BasicV1.2.7.js"></script>
+        <script type="text/javascript" src="UtilsV1.2.7.js"></script>
+        <script type="text/javascript" src="SetupV1.2.7.js"></script>
+        <script type="text/javascript" src="ModesV1.2.7.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="ShipDesigner.css">
+    </head>
+    <body>
+        <div id="menudarkener"></div>
+        
+        <div class="main" id="left">
+            <a href="http://www.herocraft.com/games/#!spaceshipbattles" target="_blank">
+                <img src="logo.png" id="logo" title="Space Arena" alt="Space Arena logo" />
+            </a>
+            <a class="link" href="https://discord.gg/YDvVA78" target="_blank">
+                <img src="" id="discord" title="Discord" />
+                Discord
+            </a>
+            <a class="link" href="http://spacearena.fandom.com" target="_blank">
+                <img src="" id="wiki" title="Wiki" />
+                Wiki
+            </a>
+            <a class="link" href="https://www.reddit.com/r/SpaceArenaOfficial" target="_blank">
+                <img src="" id="redditofficial" title="Official Reddit" />
+                Reddit
+            </a>
+            
+            <p id="info">
+                Welcome to Space Arena Ship Designer.<br /><br />
+                Use this program to create a spaceship design.<br /><br />
+                You can then go to Discord or Reddit (links above) and submit the design.<br /><br />
+                The developers will consider adding your design to the game.
+            </p>
+            <br/>
+            <p id="howtolink">
+                <a class="link" href="howto" target="_blank">
+                    Guide to using the editor
+                </a>
+            </p>
+            
+            <p id="build">
+                Made by Quarxnox<br />
+                Version 1.2.7
+            </p>
+            
+            <p id="out">
+                While you see this text, the editor is not working.
+            </p>
+        </div>
+        <div class="main" id="top"><!--
+            <button id="clear" value="clear" style="height: 40px; width: 100px;">Clear</button>
+			<button id="center" value="center" style="height: 40px; width: 100px;" onclick="onresize();">Center</button>-->
+            
+            
+            <div class="control" id="file" title="Open file menu">File</div>
+            <div class="control" id="filemenu">
+                <div id="filesidebar">
+                    <button id="filebuttonnew">New</button>
+                    <button id="filebuttonopen">Open</button>
+                    <button id="filebuttonsavep">Save Project</button>
+                    <button id="filebuttonsavei">Save Image</button>
+                </div>
+                
+                <!-- New project -->
+                <div class="filesubmenu" id="filebuttonnewmenu">
+                    <p>Create new grid:</p>
+                    <label for="filebuttonnewmenuw">Width:</label>
+                    <input name="w" placeholder="15" id="filebuttonnewmenuw" type="number" maxlength="3" value="15" />
+                    <label for="filebuttonnewmenuh">Height:</label>
+                    <input name="h" placeholder="15" id="filebuttonnewmenuh" type="number" maxlength="3" value="15" />
+                    <label for="filebuttonnewmenutype" class="info"
+                           title="Type of cell to fill grid with. If you aren't sure what this means, ignore it.">Type:</label>
+                    <input name="type" placeholder="0" id="filebuttonnewmenutype" type="number" maxlength="2"
+                           value="0" />
+                    
+                    <button id="filebuttonnewmenubutton">Enter</button>
+                </div>
+                
+                <!-- Open project -->
+                <div class="filesubmenu" id="filebuttonopenmenu">
+                    <label for="filebuttonopenmenuupload">Upload .shipdesign:</label>
+                    <p id="fileinputwrapper">
+                        <span>Browse</span>
+                        <input type="file" name="uploadfile" id="filebuttonopenmenuupload" placeholder="Upload file" />
+                    </p>
+                    
+                    <label>Input JSON:</label>
+                    <button id="filebuttonopenmenujson">Enter JavaScript Object Notation</button>
+                    <div id="filebuttonopenmenujsoninput">
+                        <textarea></textarea>
+                        <button>Enter</button>
+                    </div>
+                    
+                    <!--<button id="filebuttonopenmenucookies">Choose cookie save</button>-->
+                </div>
+                
+                <!-- Save project -->
+                <div class="filesubmenu" id="filebuttonsavepmenu">
+                    <label>Download .shipdesign:</label>
+                    <p class="downloadwrapper">
+                        <a id="downloadshipdesign" download="newship.shipdesign">Download</a>
+                    </p>
+                </div>
+                
+                <!-- Save image -->
+                <div class="filesubmenu" id="filebuttonsaveimenu">
+                    <label>Download .png image:</label>
+                    <p class="downloadwrapper">
+                        <a id="downloadimage" download>Download</a>
+                    </p>
+                    <img id="downloadimageview" alt="Image preview" />
+                </div>
+            </div>
+            
+            <canvas id="undo" class="do" width="24" height="24" title="undo"></canvas>
+            <canvas id="redo" class="do" width="24" height="24" title="redo"></canvas>
+            
+            <div id="centerbutton" title="Center the grid">
+                Center
+            </div>
+            
+            <div id="selectionoptions">
+                <div class="slider" data-property="invertSelection">
+                    Inverted selection:
+                </div>
+    
+                <div class="slider" data-property="edgesOnly">
+                    Edges only:
+                </div>
+                
+            </div>
+            
+            <div id="singleselect" title="Single select" class="modeselect selected" data-mode="1">
+                <canvas id="singleselectcan" width="50" height="50"></canvas>
+            </div>
+            
+            <div id="rectselect" title="Rectangle select" class="modeselect" data-mode="2">
+                <canvas id="rectselectcan" width="50" height="50"></canvas>
+            </div>
+    
+            <div id="circselect" title="Circular select" class="modeselect" data-mode="3">
+                <canvas id="circselectcan" width="50" height="50"></canvas>
+            </div>
+    
+            <div id="freeselect" title="Free form select" class="modeselect" data-mode="4">
+                <canvas id="freeselectcan" width="50" height="50"></canvas>
+            </div>
+            
+            <div id="celltype" title="Open cell type menu">
+                <canvas id="cellicon" width="108" height="108"></canvas>
+                <div id="celldesc">
+                    <span id="celldesca">Regular</span>
+                    <span id="celldescb">Basic</span>
+                </div>
+            </div>
+            <div id="cellselect" class="control">
+                <div class="cellgroup" id="cellgroupcolor">
+                    <canvas class="cellselection"></canvas>
+                    <canvas class="cellselection"></canvas>
+                    <canvas class="cellselection"></canvas>
+                    <canvas class="cellselection"></canvas>
+                </div>
+                <div class="cellgroup" id="cellgrouptype">
+                    <canvas class="cellselection"></canvas>
+                    <canvas class="cellselection"></canvas>
+                    <canvas class="cellselection"></canvas>
+                </div>
+                <div class="cellgroup" id="cellgroupempty">
+                    <canvas class="cellselection"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="main" id="middle">
+            <div class="poscontrol horizontal" id="pcontup">
+                <canvas class="arrow" id="upcan" width="40" height="20" title="move up"></canvas>
+                <canvas class="plus" id="upadd" width="20" height="20" title="add row"></canvas>
+                <canvas class="minus" id="updel" width="20" height="20" title="remove row"></canvas>
+            </div>
+            <div class="poscontrol vertical" id="pcontright">
+                <canvas class="arrow" id="rightcan" width="20" height="40" title="move right"></canvas>
+                <canvas class="plus" id="rightadd" width="20" height="20" title="add column"></canvas>
+                <canvas class="minus" id="rightdel" width="20" height="20" title="remove column"></canvas>
+            </div>
+            <div class="poscontrol horizontal" id="pcontdown">
+                <canvas class="minus" id="downdel" width="20" height="20" title="remove row"></canvas>
+                <canvas class="plus" id="downadd" width="20" height="20" title="add row"></canvas>
+                <canvas class="arrow" id="downcan" width="40" height="20" title="move down"></canvas>
+            </div>
+            <div class="poscontrol vertical" id="pcontleft">
+                <canvas class="minus" id="leftdel" width="20" height="20" title="remove column"></canvas>
+                <canvas class="plus" id="leftadd" width="20" height="20" title="add column"></canvas>
+                <canvas class="arrow" id="leftcan" width="20" height="40" title="move left"></canvas>
+            </div>
+            
+            <div id="scalars" title="20">
+                <canvas class="scalar minus" id="zoomout" width="20" height="20"></canvas>
+                <canvas id="line" width="75" height="20"></canvas>
+                <canvas class="scalar plus" id="zoomin" width="20" height="20"></canvas>
+            </div>
+            <canvas id="ship-designer-canvas" width="200" height="200"></canvas>
+        </div>
+        <div class="main" id="bottom">
+            <div id="bottomtext">Show cell counts</div>
+            <canvas id="outputs" width="240" height="20"></canvas>
+        </div>
+    </body>
+</html>
